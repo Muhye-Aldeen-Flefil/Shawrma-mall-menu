@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | شاورما مول</title>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-card">
+            <h2>تسجيل الدخول</h2>
+            <p>مرحباً بك في لوحة تحكم شاورما مول</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">اسم المستخدم</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div id="login-error" class="error-msg" style="display: none;">بيانات الدخول غير صحيحة!</div>
+                <button type="submit" class="btn btn-primary">تسجيل الدخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="dashboard" class="dashboard-container" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>شاورما <span>مول</span></h2>
+                <p>لوحة الإدارة</p>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="nav-item active" data-target="view-overview">لوحة التحكم</li>
+                <li class="nav-item" data-target="view-menu">إدارة المنيو</li>
+                <li class="nav-item" data-target="view-sections">إدارة الأقسام</li>
+                <li class="nav-item" data-target="view-settings">إعدادات الموقع</li>
+                <li class="nav-item logout-btn" id="logout-btn">تسجيل الخروج</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview View -->
+            <section id="view-overview" class="view-section active">
+                <div class="view-header">
+                    <h1>لوحة التحكم الرئيسية</h1>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>عدد الأقسام</h3>
+                        <p id="stat-sections">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>عدد الوجبات</h3>
+                        <p id="stat-items">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Management View -->
+            <section id="view-menu" class="view-section">
+                <div class="view-header">
+                    <h1>إدارة المنيو</h1>
+                    <button class="btn btn-primary" id="btn-add-item">إضافة وجبة جديدة</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>اسم الوجبة</th>
+                                <th>القسم</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="menu-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sections Management View -->
+            <section id="view-sections" class="view-section">
+                <div class="view-header">
+                    <h1>إدارة الأقسام</h1>
+                    <button class="btn btn-primary" id="btn-add-section">إضافة قسم جديد</button>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>اسم القسم</th>
+                                <th>المعرف (ID)</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sections-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Website Settings View -->
+            <section id="view-settings" class="view-section">
+                <div class="view-header">
+                    <h1>إعدادات الموقع</h1>
+                </div>
+                <div class="form-container">
+                    <form id="settings-form">
+                        <h3>القسم الرئيسي (Hero)</h3>
+                        <div class="form-group">
+                            <label>العنوان الرئيسي</label>
+                            <input type="text" id="setting-hero-title">
+                        </div>
+                        <div class="form-group">
+                            <label>النص الفرعي</label>
+                            <textarea id="setting-hero-subtitle" rows="3"></textarea>
+                        </div>
+                        
+                        <h3 class="mt-4">معلومات التواصل (Footer)</h3>
+                        <div class="form-group">
+                            <label>أوقات العمل</label>
+                            <textarea id="setting-hours" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>العنوان</label>
+                            <input type="text" id="setting-address">
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="text" id="setting-phone">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">حفظ التغييرات</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Add/Edit Menu Item -->
+    <div id="item-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">إضافة وجبة</h2>
+            <form id="item-form">
+                <input type="hidden" id="item-edit-index">
+                <input type="hidden" id="item-edit-old-section">
+                
+                <div class="form-group">
+                    <label>اسم الوجبة</label>
+                    <input type="text" id="item-name" required>
+                </div>
+                <div class="form-group">
+                    <label>القسم</label>
+                    <select id="item-section" required>
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>الأسعار</label>
+                    <div id="prices-container">
+                        <!-- Dynamic prices -->
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-sm mt-2" id="add-price-btn">+ إضافة سعر</button>
+                </div>
+                
+                <button type="submit" class="btn btn-primary mt-3">حفظ الوجبة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Add/Edit Section -->
+    <div id="section-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-section-modal close-modal">&times;</span>
+            <h2 id="section-modal-title">إضافة قسم</h2>
+            <form id="section-form">
+                <input type="hidden" id="section-edit-index">
+                
+                <div class="form-group">
+                    <label>اسم القسم</label>
+                    <input type="text" id="section-name" required>
+                </div>
+                <div class="form-group">
+                    <label>المعرف (ID - باللغة الإنجليزية)</label>
+                    <input type="text" id="section-id" required pattern="[A-Za-z0-9_-]+" title="أحرف انجليزية وأرقام فقط">
+                </div>
+                
+                <button type="submit" class="btn btn-primary mt-3">حفظ القسم</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-script.js" type="module"></script>
+</body>
+</html>

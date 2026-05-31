@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاورما مول | Shawarma Mall</title>
+    <meta name="description" content="أشهى وجبات الشاورما والبرغر والبروستد في شاورما مول.">
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">شاورما <span>مول</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#menu">المنيو</a></li>
+                <li><a href="#about">الصور</a></li>
+                <li><a href="#footer">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero" style="background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.7)), url('./images/hero_background_1779745909953.png');">
+        <div class="container hero-content">
+            <h1 class="animate-up" id="hero-title-el">مرحباً بكم في <span>شاورما مول</span></h1>
+            <p class="animate-up delay-1" id="hero-subtitle-el">أشهى الوجبات، الشاورما، البرغر، والبروستد المحضرة يومياً بأجود المكونات.</p>
+            <div class="hero-buttons animate-up delay-2">
+                <a href="#menu" class="btn btn-primary">شاهد المنيو</a>
+                <a href="#footer" class="btn btn-secondary">اطلب الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>قائمة <span>الطعام</span></h2>
+                <div class="line"></div>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="menu-filters" id="menu-filters">
+                <button class="filter-btn active" data-filter="shawarma">شاورما</button>
+                <button class="filter-btn" data-filter="burgers">البرغر</button>
+                <button class="filter-btn" data-filter="snacks">السناكات</button>
+                <button class="filter-btn" data-filter="broasted">البروستد والكرسبي</button>
+            </div>
+
+            <!-- Menu Container -->
+            <div class="menu-container" id="menu-container">
+                <!-- Items injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Images -->
+    <section id="about" class="featured-section">
+        <div class="container featured-grid">
+            <div class="featured-item">
+                <img src="./images/shawarma_featured_1779745922600.png" alt="شاورما">
+                <div class="featured-overlay">
+                    <h3>شاورما على الأصول</h3>
+                </div>
+            </div>
+            <div class="featured-item">
+                <img src="./images/burger_featured_1779745938777.png" alt="برغر">
+                <div class="featured-overlay">
+                    <h3>برغر لا يقاوم</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>شاورما <span>مول</span></h3>
+                <p>نقدم لكم أفضل وأشهى الوجبات السريعة المحضرة بعناية من أجود المكونات الطازجة يومياً.</p>
+            </div>
+            <div class="footer-col">
+                <h3>أوقات العمل</h3>
+                <ul>
+                    <li><span id="footer-hours-el">[أدخل أوقات العمل هنا]</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>اتصل بنا</h3>
+                <ul>
+                    <li><i class="icon">📍</i> <span id="footer-address-el">[أدخل العنوان هنا]</span></li>
+                    <li><i class="icon">📞</i> <span id="footer-phone-el">[أدخل رقم الهاتف هنا]</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>تابعنا</h3>
+                <div class="social-links">
+                    <a href="#" class="social-icon">فيسبوك</a>
+                    <a href="#" class="social-icon">إنستغرام</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 شاورما مول. جميع الحقوق محفوظة.</p>
+            <div class="developer-credits" style="margin-top: 15px; font-size: 0.9rem; color: #A3A3A3; direction: ltr;">
+                <p>Website made by Muhye Aldeen Flefil</p>
+                <p>Want to have a similar website for your business?</p>
+                <p>Contact me at email: <a href="mailto:muhye.aldeen.flefil@gmail.com" style="color: var(--primary-color); text-decoration: none;">muhye.aldeen.flefil@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
